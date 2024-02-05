@@ -1,8 +1,9 @@
 FROM composer:2
 
-ENV GROUP=app
-ENV USER=app
+ARG DOCKER_UID
+ARG DOCKER_GID
 
-RUN adduser -g ${GROUP} -s /bin/sh -D ${USER}
+RUN adduser -g ${DOCKER_GID} -s /bin/sh -D ${DOCKER_UID}
 
 USER ${USER}:${GROUP}
+USER ${DOCKER_UID}:${DOCKER_GID}

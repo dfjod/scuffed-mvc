@@ -1,12 +1,12 @@
 FROM nginx:stable-alpine
 
-ENV USER=app
-ENV GROUP=app
+ARG DOCKER_UID
+ARG DOCKER_GID
 
-RUN adduser -g ${GROUP} -s /bin/sh -D ${USER}
+RUN adduser -g ${DOCKER_GID} -s /bin/sh -D ${DOCKER_UID}
 
 ADD default.conf /etc/nginx/conf.d/default.conf
 
-RUN sed -i "s/user = www-data/user = ${USER}/g" /etc/nginx/nginx.conf
+RUN sed -i "s/user = www-data/user = ${DOCKER_UID}/g" /etc/nginx/nginx.conf
 
 RUN mkdir -p /var/www/html/public
