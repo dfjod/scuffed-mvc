@@ -5,5 +5,4 @@ ARG DOCKER_GID
 
 RUN adduser -g ${DOCKER_GID} -s /bin/sh -D ${DOCKER_UID}
 
-USER ${USER}:${GROUP}
 USER ${DOCKER_UID}:${DOCKER_GID}
