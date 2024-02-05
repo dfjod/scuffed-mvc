@@ -29,3 +29,10 @@ services:
       MYSQL_USER: app
       MYSQL_PASSWORD: secret
       MYSQL_ROOT_PASSWORD: secret
+  composer:
+    build:
+      context: .
+      dockerfile: composer.dockerfile
+    volumes:
+      - ./src:/var/www/html
+    working_dir: /var/www/html
