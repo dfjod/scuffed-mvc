@@ -1,7 +1,7 @@
 <?php
 
 require __DIR__ . '../../vendor/autoload.php';
-require "controller.php";
+require "../controllers/products.php";
 
-$controller = new Controller;
+$controller = new Products;
 $controller->index();
