@@ -28,3 +28,8 @@ composer:
 	docker-compose \
 	  run --rm --user $(DOCKER_USER) composer \
 	    composer $(COMMAND) --no-interaction
+
+.PHONY: mysql
+mysql-cli:
+	docker-compose \
+	  exec mysql mysql -uroot -psecret

@@ -12,7 +12,9 @@ services:
       - php
       - mysql
   php:
-    image: php:8.3-fpm-alpine
+    build:
+      context: .
+      dockerfile: php.dockerfile
     user: $DOCKER_USER
     volumes:
       - ./src:/var/www/html
