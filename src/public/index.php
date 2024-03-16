@@ -1,3 +1,7 @@
 <?php
 
-echo "<h1>Scuffed MVC</h1>";
+require __DIR__ . '../../vendor/autoload.php';
+require "controller.php";
+
+$controller = new Controller;
+$controller->index();
